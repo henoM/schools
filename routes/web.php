@@ -16,16 +16,19 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::post('/login','Auth\LoginController@login')->name('login');
-
-Route::get('/home', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
-
 Route::middleware('admin')->group(function () {
     Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
 
         Route::get('/dashboard','AdminController@index')->name('admin.dashboard');
+
+    });
+});
+
+
+Route::middleware('teacher')->group(function () {
+    Route::group(['prefix' => 'teacher','namespace' => 'Teacher'], function () {
+
+        Route::get('/dashboard','TeacherController@index')->name('teacher.dashboard');
 
     });
 });
