@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3900f2e69b8e4eb7f28eecccc6878e0e",
+    "content-hash": "0d230f96986b51440902e2e717b543b8",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2361,6 +2361,106 @@
                 "environment"
             ],
             "time": "2018-07-29T20:33:41+00:00"
+        },
+        {
+            "name": "wilgucki/csv",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wilgucki/csv.git",
+                "reference": "c740a98b53e224958818ca1a82f313ce25162ca8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wilgucki/csv/zipball/c740a98b53e224958818ca1a82f313ce25162ca8",
+                "reference": "c740a98b53e224958818ca1a82f313ce25162ca8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "wilgucki/php-csv": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Wilgucki\\Csv\\CsvServiceProvider"
+                    ],
+                    "aliases": {
+                        "CsvReader": "Wilgucki\\Csv\\Facades\\Reader",
+                        "CsvWriter": "Wilgucki\\Csv\\Facades\\Writer"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wilgucki\\Csv\\": "src",
+                    "Wilgucki\\Csv\\Test\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maciej Wilgucki",
+                    "email": "mwilgucki@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 package for writing and reading CSV files",
+            "keywords": [
+                "csv",
+                "laravel"
+            ],
+            "time": "2018-07-15T11:27:43+00:00"
+        },
+        {
+            "name": "wilgucki/php-csv",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wilgucki/php-csv.git",
+                "reference": "a6759ecc2ee42348f989dce0688f6c9dd02b1b96"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wilgucki/php-csv/zipball/a6759ecc2ee42348f989dce0688f6c9dd02b1b96",
+                "reference": "a6759ecc2ee42348f989dce0688f6c9dd02b1b96",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Wilgucki\\PhpCsv\\": "src",
+                    "Wilgucki\\PhpCsv\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maciej Wilgucki",
+                    "email": "mwilgucki@gmail.com"
+                }
+            ],
+            "description": "Object oriented way of managing CSV files",
+            "keywords": [
+                "csv",
+                "php"
+            ],
+            "time": "2018-07-15T10:37:15+00:00"
         }
     ],
     "packages-dev": [

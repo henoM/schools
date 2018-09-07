@@ -16,11 +16,20 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
 Route::middleware('admin')->group(function () {
     Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
 
         Route::get('/dashboard','AdminController@index')->name('admin.dashboard');
 
+        Route::group(['prefix' => 'teacher','namespace' => 'Teacher'], function () {
+            Route::get('/teacher','TeacherController@index')->name('admin.teachers');
+            Route::get('/create','TeacherController@create')->name('admin.teachers.create');
+            Route::post('/store','TeacherController@store')->name('admin.teacher.store');
+        });
+        Route::group(['prefix' => 'skills','namespace' => 'Skills'], function () {
+            Route::get('/teacher','SkillsController@index')->name('admin.skills');
+        });
     });
 });
 

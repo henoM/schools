@@ -23,6 +23,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //     Admin/TeacherRepo
+        $this->app->bind(
+            'App\Contracts\Admin\Teacher\TeacherInterface',
+            'App\Repositories\Admin\Teacher\TeacherRepository'
+        );
+        //     Admin/SkillsRepo
+        $this->app->bind(
+            'App\Contracts\Admin\Skills\SkillsInterface',
+            'App\Repositories\Admin\Skills\SkillsRepository'
+        );
     }
 }
