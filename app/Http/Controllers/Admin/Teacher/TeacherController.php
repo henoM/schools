@@ -49,5 +49,6 @@ class TeacherController extends Controller
             $token = app('auth.password.broker')->createToken($user);
             $user->token =  $token;
             $user->notify(new TeacherStore($user));
+            dd(1);
     }
 }

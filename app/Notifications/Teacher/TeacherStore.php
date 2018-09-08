@@ -45,12 +45,12 @@ class TeacherStore extends Notification
 
         $user = $this->user;
         return (new MailMessage)
-            ->from('hmartirosyan773013@gmail.com')
             ->subject('Successfully created new account')
             ->greeting(sprintf('Hello %s', $user->first_name))
             ->line('The introduction to the notification.')
             ->action('Click Here', url('password/reset/'.$user->token))
             ->line('Thank you for using our application!');
+        dd(7);
     }
 
     /**
