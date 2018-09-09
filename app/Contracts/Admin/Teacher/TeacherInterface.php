@@ -21,4 +21,10 @@ interface TeacherInterface
      * @return mixed
      */
     public function store($data);
+
+    /**
+     * @param $skillsId
+     * @return mixed
+     */
+    public function filter($skillsId);
 }

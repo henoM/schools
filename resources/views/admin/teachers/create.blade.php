@@ -52,7 +52,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-actions form-group"> {!!  Form::submit('Add', ['class' => 'btn btn-primary'])!!}</div>
+                    <div class="form-actions form-group"> {!!  Form::submit('Add', ['class' => 'btn btn-primary'])!!}</div>
                 {!! Form::close() !!}
             </div>
         </div>

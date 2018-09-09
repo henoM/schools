@@ -33,6 +33,17 @@
                 <div class="register-link m-t-15 text-center">
                     <p>Don't have account ? <a href="{{ route('register') }}">Registration</a></p>
                 </div>
+            <div class="form-group row mb-0">
+                <div class="col-md-8 offset-md-4">
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('Login') }}
+                    </button>
+
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                </div>
+            </div>
             </div>
 
         </div>
@@ -91,17 +102,7 @@
                             {{--</div>--}}
                         {{--</div>--}}
 
-                        {{--<div class="form-group row mb-0">--}}
-                            {{--<div class="col-md-8 offset-md-4">--}}
-                                {{--<button type="submit" class="btn btn-primary">--}}
-                                    {{--{{ __('Login') }}--}}
-                                {{--</button>--}}
 
-                                {{--<a class="btn btn-link" href="{{ route('password.request') }}">--}}
-                                    {{--{{ __('Forgot Your Password?') }}--}}
-                                {{--</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
                     {{--</form>--}}
                 {{--</div>--}}
             {{--</div>--}}

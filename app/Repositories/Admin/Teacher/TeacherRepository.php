@@ -42,4 +42,15 @@ class TeacherRepository implements TeacherInterface
 //        dd($data);
         return $this->model->create($data);
     }
+
+    /**
+     * @param $skillsId
+     * @return mixed|void
+     */
+    public function filter($skillsId){
+
+        return $this->model->where('skills_id',$skillsId)->get();
+
+    }
+
 }

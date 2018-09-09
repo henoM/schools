@@ -7,6 +7,7 @@ use App\Contracts\Admin\Teacher\TeacherInterface;
 use App\Http\Requests\Admin\Teacher\TeacherCreate;
 use App\Http\Controllers\Controller;
 use App\Notifications\Teacher\TeacherStore;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class TeacherController extends Controller
@@ -27,8 +28,9 @@ class TeacherController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(){
+        $skills = $this->skillsRepo->getSkills()->pluck('skills','id');
        $teachers = $this->teacherRepo->getTeacher();
-       return view('admin.teachers.teachers',['teachers' => $teachers]);
+       return view('admin.teachers.teachers',compact('skills','teachers'));
     }
 
 
@@ -50,5 +52,13 @@ class TeacherController extends Controller
             $user->token =  $token;
             $user->notify(new TeacherStore($user));
             dd(1);
+    }
+    public function filter(Request $request)
+    {
+        $skillsId  = $request->skills_id;
+        $skills = $this->skillsRepo->getSkills()->pluck('skills','id');
+        $teachers = $this->teacherRepo->filter($skillsId);
+        return view('admin.teachers.teachers',compact('skills','teachers'));
+
     }
 }

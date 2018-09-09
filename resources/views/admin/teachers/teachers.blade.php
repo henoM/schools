@@ -57,16 +57,22 @@
                             <strong class="card-title">My Family</strong>
                         </div>
                         <div class="form-inline">
-                            <a href="{{route('admin.teachers.create')}}" class="btn btn-primary">Add Teacher</a>
-                        </div>
 
+                            <a href="{{route('admin.teachers.create')}}" class="btn btn-primary">Add Teacher</a>
+
+                            {!! Form::open(['route' => 'admin.teachers.filter','class' => 'form-horizonta']) !!}
+                                 {!! Form::select('skills_id', $skills ,null,['class' => 'form-control-sm form-control'])!!}
+                                <div class="form-actions form-group"> {!!  Form::submit('Filter', ['class' => 'btn btn-primary'])!!}</div>
+                            {!! Form::close() !!}
+                        </div>
 
                         <div class="card-body">
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                 <thead>
 
                                 <tr>
-                                    <th scope="col">Name</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
                                     <th scope="col">Active</th>
                                     <th scope="col">Actions</th>
                                 </tr>
@@ -75,13 +81,20 @@
                                 <tbody>
                                 @foreach($teachers as $teacher)
                                     <tr>
-                                        <td>{{ $teacher->name }}</td>
+                                        <td>{{ $teacher->first_name }}</td>
+                                        <td>{{ $teacher->last_name }}</td>
+                                        <td>
+                                            @if($teacher->is_active == 0)
+                                            No Actove
+                                                @endif
 
-                                        {{--<td>--}}
-                                            {{--<a href="{{route('family.people.view',$teacher->id)}}" class="btn btn-success btn-xs">View</a>--}}
-                                            {{--<a href="{{route('family.people.update', $teacher->id)}}" class="btn btn-primary btn-xs">Update</a>--}}
-                                            {{--<a href="{{route('family.people.delete', $teacher->id)}}" class="btn btn-danger btn-xs">Delete</a>--}}
-                                        {{--</td>--}}
+                                        </td>
+
+                                        <td>
+                                            <a href="#" class="btn btn-success btn-xs">View</a>
+                                            <a href="#" class="btn btn-primary btn-xs">Update</a>
+                                            <a href="#" class="btn btn-danger btn-xs">Delete</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

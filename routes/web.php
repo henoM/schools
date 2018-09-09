@@ -26,6 +26,7 @@ Route::middleware('admin')->group(function () {
             Route::get('/teacher','TeacherController@index')->name('admin.teachers');
             Route::get('/create','TeacherController@create')->name('admin.teachers.create');
             Route::post('/store','TeacherController@store')->name('admin.teacher.store');
+            Route::post('/filter','TeacherController@filter')->name('admin.teachers.filter');
         });
         Route::group(['prefix' => 'skills','namespace' => 'Skills'], function () {
             Route::get('/teacher','SkillsController@index')->name('admin.skills');
