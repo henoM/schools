@@ -160,7 +160,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Wilgucki\Csv\CsvServiceProvider::class,
-        Maatwebsite\Excel\ExcelServiceProvider::class,
+//        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -212,7 +212,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'CsvReader' => Wilgucki\Csv\Facades\Reader::class,
         'CsvWriter' => Wilgucki\Csv\Facades\Writer::class,
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+//        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
     'encoding' => [
