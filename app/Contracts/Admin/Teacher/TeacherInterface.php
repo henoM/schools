@@ -27,4 +27,28 @@ interface TeacherInterface
      * @return mixed
      */
     public function filter($skillsId);
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function delete($id);
+
+    /**
+     * @return mixed
+     */
+    public function active($id);
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getTeacherById($id);
+    /**
+     * @param $id
+     * @param $request
+     * @return mixed
+     */
+    public function edit($id, $data);
+
 }

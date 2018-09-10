@@ -15,4 +15,9 @@ interface SkillsInterface
      * @return mixed
      */
     public function getSkills();
+
+    /**
+     * @return mixed
+     */
+    public function getSkill($id);
 }

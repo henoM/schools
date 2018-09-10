@@ -2,6 +2,7 @@
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8"/><!-- /Added by HTTrack -->
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8"/>
     <title>Admin</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
@@ -16,6 +17,7 @@
     <link href="{{ asset('admin/assets/scss/style.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/css/lib/vector-map/jqvmap.min.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 </head>
 <body>
 @include('admin.layouts.sidebar')
@@ -26,12 +28,9 @@
     @show
 
 </div>
-
-
-
-
-
-<script src="{{ asset('admin/assets/js/vendor/jquery-2.1.4.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script src="{{ asset('admin/assets/js/plugins.js') }}"></script>
 <script src="{{ asset('admin/assets/js/main.js') }}"></script>
+@stack('scripts')
 </body>
+</html>

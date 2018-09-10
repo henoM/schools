@@ -26,8 +26,17 @@ class SkillsRepository implements SkillsInterface
     }
 
 
+    /**
+     * @return mixed
+     */
     public  function getSkills(){
         return $this->model->paginate(10);
     }
 
+    /**
+     * @return mixed
+     */
+    public  function getSkill($id){
+      return $this->model->where('id',$id)->first();
+    }
 }

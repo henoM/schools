@@ -4,11 +4,12 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Wilgucki\Csv\Traits\CsvExportable;
 
 class User extends Authenticatable
 {
     use Notifiable;
-
+    use CsvExportable;
     /**
      * The attributes that are mass assignable.
      *

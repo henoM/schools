@@ -27,6 +27,11 @@ Route::middleware('admin')->group(function () {
             Route::get('/create','TeacherController@create')->name('admin.teachers.create');
             Route::post('/store','TeacherController@store')->name('admin.teacher.store');
             Route::post('/filter','TeacherController@filter')->name('admin.teachers.filter');
+
+            Route::get('/delete/{id}','TeacherController@delete')->name('admin.teachers.delete');
+            Route::get('/view/{id}','TeacherController@teacher')->name('admin.teachers.view');
+            Route::get('/update/{id}','TeacherController@update')->name('admin.teachers.update');
+            Route::post('/edit/{id}','TeacherController@edit')->name('admin.teachers.edit');
         });
         Route::group(['prefix' => 'skills','namespace' => 'Skills'], function () {
             Route::get('/teacher','SkillsController@index')->name('admin.skills');

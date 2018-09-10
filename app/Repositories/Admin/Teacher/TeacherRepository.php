@@ -53,4 +53,39 @@ class TeacherRepository implements TeacherInterface
 
     }
 
+    /**
+     * @param $id
+     * @return bool|mixed|null
+     * @throws \Exception
+     */
+    public function delete($id){
+        return $this->model->delete($id);
+    }
+
+    /**
+     * @return mixed|void
+     */
+    public function active($id){
+        $data = [
+            'is_active' => 1
+        ];
+       return  $this->model->where('id', $id)->update($data);
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getTeacherById($id){
+        return $this->model->where('id',$id)->first();
+    }
+
+    /**
+     * @param $id
+     * @param $request
+     * @return mixed
+     */
+    public function edit($id, $data){
+        return $this->model->where('id', $id)->update($data);
+    }
 }
