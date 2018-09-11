@@ -23,11 +23,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
+    public function index()
+    {
         if(Auth::user() && Auth::user()->role_id == 1){
             return view('admin.dashboard');
         }else if(Auth::user() && Auth::user()->role_id == 2){
-            return view('admin.dashboard');
+            return view('teacher.dashboard');
+        }else if(Auth::user() && Auth::user()->role_id == 3){
+            return view('student.dashboard');
         }else{
             return view('logout');
         }

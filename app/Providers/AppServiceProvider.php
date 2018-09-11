@@ -23,6 +23,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        //     Teacher/StudentsRepo
+        $this->app->bind(
+            'App\Contracts\UserInterface',
+            'App\Repositories\UserRepository'
+        );
         //     Admin/TeacherRepo
         $this->app->bind(
             'App\Contracts\Admin\Teacher\TeacherInterface',
@@ -32,6 +37,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Contracts\Admin\Skills\SkillsInterface',
             'App\Repositories\Admin\Skills\SkillsRepository'
+        );
+        //     Teacher/StudentsRepo
+        $this->app->bind(
+            'App\Contracts\Teacher\Student\StudentInterface',
+            'App\Repositories\Teacher\Student\StudentRepository'
         );
     }
 }

@@ -61,16 +61,21 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">My Family</strong>
+                            <strong class="card-title">All Teachers</strong>
                         </div>
                         <div class="form-inline">
+                            <div class="col-md-4">
+                                <a href="{{route('admin.teachers.create')}}" class="btn btn-primary">Add Teacher</a>
 
-                            <a href="{{route('admin.teachers.create')}}" class="btn btn-primary">Add Teacher</a>
+                            </div>
+                            <div class="col-md-4">
+                                {!! Form::select('skills_id', [0 =>'none' ,$skills] ,null,['class' => 'form-control-sm form-control','id' => 'skills'])!!}
 
-                            {{--{!! Form::open(['route' => 'admin.teachers.filter','class' => 'form-horizonta']) !!}--}}
-                                 {!! Form::select('skills_id', [0 =>'none' ,$skills] ,null,['class' => 'form-control-sm form-control','id' => 'skills'])!!}
-                                {{--<div class="form-actions form-group"> {!!  Form::submit('Filter', ['class' => 'btn btn-primary'])!!}</div>--}}
-                            {{--{!! Form::close() !!}--}}
+                            </div>
+                            <div class="col-md-4">
+                                <a href="{{route('admin.teachers.download')}}" class="btn btn-primary">Download</a>
+                            </div>
+
                         </div>
 
                         <div class="card-body">
@@ -98,9 +103,7 @@
                                             @else
                                                 <span class="badge badge-pill badge-danger">Inactive</span>
                                             @endif
-
                                         </td>
-
                                         <td>
                                             <a href="{{route('admin.teachers.view', $teacher->id)}}" class="btn btn-primary btn-xs">View</a>
                                             <a href="{{route('admin.teachers.update', $teacher->id)}}" class="btn btn-success btn-xs">Update</a>
@@ -109,7 +112,6 @@
                                     </tr>
                                 @endforeach
                                 </tbody>
-
                             </table>
                             {{ $teachers->links() }}
                         </div>

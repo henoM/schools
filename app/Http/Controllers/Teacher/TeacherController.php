@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 
 class TeacherController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('teacher.dashboard');
     }
 }

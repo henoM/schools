@@ -10,74 +10,63 @@ namespace App\Repositories\Admin\Teacher;
 
 
 use App\Contracts\Admin\Teacher\TeacherInterface;
-use App\User;
+use App\Repositories\UserRepository;
 
 class TeacherRepository implements TeacherInterface
 {
 
-    protected $model;
+    protected $userRepo;
 
     /**
      * TeacherRepository constructor.
      * @param User $model
      */
-    public function __construct(User $model)
+    public function __construct(UserRepository $userRepo)
     {
-        $this->model = $model;
+        $this->userRepo = $userRepo;
     }
-
 
     /**
      * @return mixed
      */
-    public function getTeacher(){
-        return $this->model->where('role_id',2)->paginate(10);
+    public function getTeacher()
+    {
+        $id = 2;
+       return $this->userRepo->getUsers($id);
     }
 
     /**
      * @param $data
      * @return mixed
      */
-    public function store($data){
-//        dd($data);
-        return $this->model->create($data);
-    }
+    public function store($data)
+    {
+        return $this->userRepo->store($data);
 
-    /**
-     * @param $skillsId
-     * @return mixed|void
-     */
-    public function filter($skillsId){
-
-        return $this->model->where('skills_id',$skillsId)->get();
-
-    }
-
-    /**
-     * @param $id
-     * @return bool|mixed|null
-     * @throws \Exception
-     */
-    public function delete($id){
-        return $this->model->delete($id);
     }
 
     /**
      * @return mixed|void
      */
-    public function active($id){
+    public function active($id)
+    {
+
         $data = [
             'is_active' => 1
         ];
-       return  $this->model->where('id', $id)->update($data);
+
+        return  $this->userRepo->active($data,$id);
     }
+
+
 
     /**
      * @param $id
      * @return mixed
      */
-    public function getTeacherById($id){
-        return $this->model->where('id',$id)->first();
+    public function getTeacherById($id)
+    {
+        return $this->userRepo->getUserById($id);
     }
 
     /**
@@ -85,7 +74,27 @@ class TeacherRepository implements TeacherInterface
      * @param $request
      * @return mixed
      */
-    public function edit($id, $data){
-        return $this->model->where('id', $id)->update($data);
+    public function edit($id, $data)
+    {
+        return $this->userRepo->edit($id, $data);
+    }
+
+    /**
+    * @param $id
+    * @return bool|mixed|null
+    * @throws \Exception
+    */
+    public function delete($id)
+    {
+        return $this->userRepo->delete($id);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTeacherForDownload()
+    {
+        $id = 2;
+        return $this->userRepo->getTeacherForDownload($id);
     }
 }

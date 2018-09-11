@@ -32,6 +32,7 @@ Route::middleware('admin')->group(function () {
             Route::get('/view/{id}','TeacherController@teacher')->name('admin.teachers.view');
             Route::get('/update/{id}','TeacherController@update')->name('admin.teachers.update');
             Route::post('/edit/{id}','TeacherController@edit')->name('admin.teachers.edit');
+            Route::get('/download','TeacherController@download')->name('admin.teachers.download');
         });
         Route::group(['prefix' => 'skills','namespace' => 'Skills'], function () {
             Route::get('/teacher','SkillsController@index')->name('admin.skills');
@@ -44,6 +45,19 @@ Route::middleware('teacher')->group(function () {
     Route::group(['prefix' => 'teacher','namespace' => 'Teacher'], function () {
 
         Route::get('/dashboard','TeacherController@index')->name('teacher.dashboard');
+
+        Route::group(['prefix' => 'student','namespace' => 'Student'], function () {
+            Route::get('/student','StudentController@index')->name('teacher.student');
+            Route::get('/create','StudentController@create')->name('teacher.student.create');
+            Route::post('/store','StudentController@store')->name('teacher.student.store');
+        });
+    });
+});
+
+Route::middleware('student')->group(function () {
+    Route::group(['prefix' => 'student','namespace' => 'Student'], function () {
+
+        Route::get('/dashboard','StudentController@index')->name('student.dashboard');
 
     });
 });

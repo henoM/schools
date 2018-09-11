@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('teacher.layouts.app')
 @section('content')
     @if(session('create'))
         <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
@@ -65,12 +65,7 @@
                         </div>
                         <div class="form-inline">
 
-                            <a href="{{route('admin.teachers.create')}}" class="btn btn-primary">Add Teacher</a>
-
-                            {{--{!! Form::open(['route' => 'admin.teachers.filter','class' => 'form-horizonta']) !!}--}}
-                                 {!! Form::select('skills_id', [0 =>'none' ,$skills] ,null,['class' => 'form-control-sm form-control','id' => 'skills'])!!}
-                                {{--<div class="form-actions form-group"> {!!  Form::submit('Filter', ['class' => 'btn btn-primary'])!!}</div>--}}
-                            {{--{!! Form::close() !!}--}}
+                            <a href="{{route('teacher.student.create')}}" class="btn btn-primary">Add Student</a>
                         </div>
 
                         <div class="card-body">
@@ -80,20 +75,21 @@
                                 <tr>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Last Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Passport</th>
+                                    <th scope="col">Age</th>
                                     <th scope="col">Actions</th>
                                 </tr>
 
                                 </thead>
                                 <tbody>
-                                @foreach($teachers as $teacher)
+                                @foreach($students as $student)
                                     <tr>
-                                        <td>{{ $teacher->first_name }}</td>
-                                        <td>{{ $teacher->last_name }}</td>
-                                        <td>{{ $teacher->email }}</td>
+                                        <td>{{ $student->first_name }}</td>
+                                        <td>{{ $student->last_name }}</td>
+                                        <td>{{ $student->passport }}</td>
+                                        <td>{{ $student->birth_day }}</td>
                                         <td>
-                                            @if($teacher->is_active == 1)
+                                            @if($student->is_active == 1)
                                                 <span class="badge badge-pill badge-warning">Active</span>
                                             @else
                                                 <span class="badge badge-pill badge-danger">Inactive</span>
@@ -102,16 +98,16 @@
                                         </td>
 
                                         <td>
-                                            <a href="{{route('admin.teachers.view', $teacher->id)}}" class="btn btn-primary btn-xs">View</a>
-                                            <a href="{{route('admin.teachers.update', $teacher->id)}}" class="btn btn-success btn-xs">Update</a>
-                                            <a href="{{route('admin.teachers.delete',$teacher->id)}}" class="btn btn-danger btn-xs" >Delete</a>
+                                            {{--<a href="{{route('admin.teachers.view', $student->id)}}" class="btn btn-primary btn-xs">View</a>--}}
+                                            {{--<a href="{{route('admin.teachers.update', $studentr->id)}}" class="btn btn-success btn-xs">Update</a>--}}
+                                            {{--<a href="{{route('admin.teachers.delete',$student->id)}}" class="btn btn-danger btn-xs" >Delete</a>--}}
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
 
                             </table>
-                            {{ $teachers->links() }}
+                            {{ $students->links() }}
                         </div>
                     </div>
                 </div>
@@ -120,25 +116,25 @@
         </div>
     </div>
 @endsection
-@push('scripts')
-    <script>
-        $("#skills").on('change',function(){
-            var skillsId = $(this).val();
+{{--@push('scripts')--}}
+    {{--<script>--}}
+        {{--$("#skills").on('change',function(){--}}
+            {{--var skillsId = $(this).val();--}}
 
-            $.ajax({
-                type:'post',
-                url:'/admin/teacher/filter',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                data:{
-                    skillsId: skillsId
-                },
-                success:function(data){
-                    $('#teachers').empty();
-                    $('#teachers').html(data.html);
-                }
-            });
-        });
-    </script>
-@endpush
+            {{--$.ajax({--}}
+                {{--type:'post',--}}
+                {{--url:'/admin/teacher/filter',--}}
+                {{--headers: {--}}
+                    {{--'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+                {{--},--}}
+                {{--data:{--}}
+                    {{--skillsId: skillsId--}}
+                {{--},--}}
+                {{--success:function(data){--}}
+                    {{--$('#teachers').empty();--}}
+                    {{--$('#teachers').html(data.html);--}}
+                {{--}--}}
+            {{--});--}}
+        {{--});--}}
+    {{--</script>--}}
+{{--@endpush--}}

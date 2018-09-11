@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\Teacher\TeacherUpdate;
 use App\Notifications\Teacher\TeacherStore;
 use Illuminate\Http\Request;
 use DB;
+use Excel;
 
 class TeacherController extends Controller
 {
@@ -40,26 +41,6 @@ class TeacherController extends Controller
      */
     public function create()
     {
-
-//        $users = DB::table('users')->get()->toArray();
-//
-//        $usersArray[] = array('First Name','Last Name','Email');
-//        foreach($users as $user)
-//        {
-//            $usersArray[] = array(
-//                'First Name'  => $user->first_name,
-//                'Last Name'  => $user->last_name,
-//                'Email'  => $user->email,
-//            );
-//        }
-////        dd($users);
-//        Excel::create('Customer Data', function($excel) use ($usersArray){
-//            $excel->setTitle('Customer Data');
-//            $excel->sheet('Customer Data', function($sheet) use ($usersArray){
-//                $sheet->fromArray($usersArray, null, 'A1', false, false);
-//            });
-//        })->download('csv');
-
         $skills = $this->skillsRepo->getSkills()->pluck('skills','id');
 
         return view('admin.teachers.create',compact('skills'));
@@ -131,4 +112,24 @@ class TeacherController extends Controller
         return redirect()->to('admin/teacher/teacher')->with('delete', 'Teacher deleted');
     }
 
+
+    public function download()
+    {
+        $users  = $this->teacherRepo->getTeacherForDownload()->toArray();
+        $usersArray[] = array('First Name','Last Name','Email');
+        foreach($users as $user)
+        {
+            $usersArray[] = array(
+                'First Name'  => $user['first_name'],
+                'Last Name'  => $user['last_name'],
+                'Email'  => $user['email'],
+            );
+        }
+        Excel::create('Teachers', function($excel) use ($usersArray){
+            $excel->setTitle('Teachers');
+            $excel->sheet('Teachers', function($sheet) use ($usersArray){
+                $sheet->fromArray($usersArray, null, 'A1', false, false);
+            });
+        })->download('csv');
+    }
 }

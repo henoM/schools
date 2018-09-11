@@ -2,19 +2,20 @@
 /**
  * Created by PhpStorm.
  * User: user
- * Date: 9/7/18
- * Time: 12:25 PM
+ * Date: 9/11/18
+ * Time: 1:54 PM
  */
 
-namespace App\Contracts\Admin\Teacher;
+namespace App\Contracts;
 
 
-interface TeacherInterface
+interface UserInterface
 {
     /**
+     * @param $id
      * @return mixed
      */
-    public function getTeacher();
+    public function getUsers($id);
 
     /**
      * @param $data
@@ -23,19 +24,20 @@ interface TeacherInterface
     public function store($data);
 
     /**
+     * @param $data
+     * @param $id
      * @return mixed
      */
-    public function active($id);
+    public function active($data, $id);
 
     /**
      * @param $id
      * @return mixed
      */
-    public function getTeacherById($id);
-
+    public function getUserById($id);
     /**
+     * @param $data
      * @param $id
-     * @param $request
      * @return mixed
      */
     public function edit($id, $data);
@@ -46,9 +48,8 @@ interface TeacherInterface
     public function delete($id);
 
     /**
+     * @param $id
      * @return mixed
      */
-    public function getTeacherForDownload();
-
-
+    public function getTeacherForDownload($id);
 }

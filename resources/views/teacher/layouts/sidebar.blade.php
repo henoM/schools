@@ -12,17 +12,14 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="{{route('admin.dashboard')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="{{route('teacher.dashboard')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="{{route('admin.teachers')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Teachers</a>
+                        <a href="{{route('teacher.student')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Students</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="{{route('admin.teachers')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Rooms</a>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="{{route('admin.teachers')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Student</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="{{route('admin.skills')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Skills</a>

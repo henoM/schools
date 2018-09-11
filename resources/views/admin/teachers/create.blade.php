@@ -3,7 +3,7 @@
     <div class="col-lg-6">
         <div class="card">
             <div class="card-header">
-                <strong>Add</strong> People
+                <strong>Add</strong>Teacher
             </div>
             <div class="card-body card-block">
                 {!! Form::open(['route' => 'admin.teacher.store','class' => 'form-horizonta']) !!}

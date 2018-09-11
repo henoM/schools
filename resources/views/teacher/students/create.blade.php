@@ -1,12 +1,12 @@
-@extends('admin.layouts.app')
+@extends('teacher.layouts.app')
 @section('content')
     <div class="col-lg-6">
         <div class="card">
             <div class="card-header">
-                <strong>Add</strong> People
+                <strong>Add</strong> Student
             </div>
             <div class="card-body card-block">
-                {!! Form::open(['route' => 'admin.teacher.store','class' => 'form-horizonta']) !!}
+                {!! Form::open(['route' => 'teacher.student.store','class' => 'form-horizonta']) !!}
                 <div class="row form-group">
                     <div class="col col-md-3">{!!  Form::label('first_name', 'First Name',['class' => 'form-control-label'])!!}</div>
                     <div class="col-12 col-md-9">
@@ -41,18 +41,28 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3">{!!  Form::label('name', 'Skills',['class' => 'form-control-label'])!!}
-                    </div>
+                    <div class="col col-md-3">{!!  Form::label('birth_day', 'Birth Day',['class' => 'form-control-label'])!!}</div>
                     <div class="col-12 col-md-9">
-                        {!! Form::select('skills_id', $skills ,null,['class' => 'form-control-sm form-control'])!!}
-                        @if ($errors->has('skills'))
+                        {!!  Form::date('birth_day', null, ['class' => 'form-control'])!!}
+                        @if ($errors->has('birth_day'))
                             <span class="text-danger">
-		                    	<strong>{{ $errors->first('skiils') }}</strong>
+		                    	<strong>{{ $errors->first('birth_day') }}</strong>
 		                    </span>
                         @endif
                     </div>
                 </div>
-                    <div class="form-actions form-group"> {!!  Form::submit('Add', ['class' => 'btn btn-primary'])!!}</div>
+                <div class="row form-group">
+                    <div class="col col-md-3">{!!  Form::label('passport', 'Passport Series',['class' => 'form-control-label'])!!}</div>
+                    <div class="col-12 col-md-9">
+                        {!!  Form::text('passport', null, ['class' => 'form-control'])!!}
+                        @if ($errors->has('passport'))
+                            <span class="text-danger">
+		                    	<strong>{{ $errors->first('passport') }}</strong>
+		                    </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-actions form-group"> {!!  Form::submit('Add', ['class' => 'btn btn-primary'])!!}</div>
                 {!! Form::close() !!}
             </div>
         </div>

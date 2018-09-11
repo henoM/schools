@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('role_id');
             $table->integer('skills_id')->nullable();
+            $table->string('passport')->unique()->nullable();
+            $table->string('birth_day')->nullable();
             $table->boolean('is_active')->default(0);
             $table->rememberToken();
             $table->timestamps();

@@ -19,7 +19,8 @@ class SkillsController extends Controller
          $this->skillsRepo = $skillsRepo;
      }
 
-    public function index(){
+    public function index()
+    {
 
        $skills =  $this->skillsRepo->getSkills();
 

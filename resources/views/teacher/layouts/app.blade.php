@@ -20,9 +20,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 </head>
 <body>
-@include('admin.layouts.sidebar')
+@include('teacher.layouts.sidebar')
 <div id="right-panel" class="right-panel">
-    @include('admin.layouts.header')
+    @include('teacher.layouts.header')
     @section('content')
         @yield('content')
     @show

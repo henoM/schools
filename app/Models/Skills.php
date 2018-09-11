@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Skills extends Model
 {
     protected $fillable = [
-        'nskills'
+        'skills'
     ];
 
     /**
@@ -17,4 +17,5 @@ class Skills extends Model
     {
         return $this->hasMany('App\User');
     }
+
 }
