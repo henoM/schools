@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name','last_name', 'email', 'password','is_active','role_id','skills_id','passport','birth_day',
+        'first_name','last_name', 'email', 'password','is_active','role_id',
     ];
 
     /**
@@ -35,12 +35,21 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Models\Role', 'role_id');
     }
+
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function skills()
+    public function teachers()
     {
-        return $this->belongsTo('App\Models\Skills', 'skills_id');
+        return $this->hasOne('App\Models\Teacher');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function students()
+    {
+        return $this->hasOne('App\Models\Student');
+    }
 }

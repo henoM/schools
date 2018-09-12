@@ -77,6 +77,7 @@
                                     <th scope="col">Last Name</th>
                                     <th scope="col">Passport</th>
                                     <th scope="col">Age</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Actions</th>
                                 </tr>
 
@@ -84,12 +85,12 @@
                                 <tbody>
                                 @foreach($students as $student)
                                     <tr>
-                                        <td>{{ $student->first_name }}</td>
-                                        <td>{{ $student->last_name }}</td>
-                                        <td>{{ $student->passport }}</td>
-                                        <td>{{ $student->birth_day }}</td>
+                                        <td>{{ $student->users->first_name }}</td>
+                                        <td>{{ $student->users->last_name }}</td>
+                                            <td>{{ $student->passport }}</td>
+                                            <td>{{ $student->birth_day }}</td>
                                         <td>
-                                            @if($student->is_active == 1)
+                                            @if($student->users->is_active == 1)
                                                 <span class="badge badge-pill badge-warning">Active</span>
                                             @else
                                                 <span class="badge badge-pill badge-danger">Inactive</span>
@@ -98,8 +99,8 @@
                                         </td>
 
                                         <td>
-                                            {{--<a href="{{route('admin.teachers.view', $student->id)}}" class="btn btn-primary btn-xs">View</a>--}}
-                                            {{--<a href="{{route('admin.teachers.update', $studentr->id)}}" class="btn btn-success btn-xs">Update</a>--}}
+                                            {{--<a href="{{route('teacher.student.edit', $student->users->id)}}" class="btn btn-primary btn-xs">View</a>--}}
+                                            <a href="{{route('teacher.student.update', $student->users->id)}}" class="btn btn-success btn-xs">Update</a>
                                             {{--<a href="{{route('admin.teachers.delete',$student->id)}}" class="btn btn-danger btn-xs" >Delete</a>--}}
                                         </td>
                                     </tr>

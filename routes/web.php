@@ -50,6 +50,8 @@ Route::middleware('teacher')->group(function () {
             Route::get('/student','StudentController@index')->name('teacher.student');
             Route::get('/create','StudentController@create')->name('teacher.student.create');
             Route::post('/store','StudentController@store')->name('teacher.student.store');
+            Route::get('/update/{id}','StudentController@update')->name('teacher.student.update');
+            Route::post('/edit/{id}','StudentController@edit')->name('teacher.student.edit');
         });
     });
 });

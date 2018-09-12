@@ -48,10 +48,16 @@ class TeacherController extends Controller
 
     public function store(TeacherCreate $request)
     {
-        $user = $this->teacherRepo->store($request->all());
+        $data = $request->except("skills_id");
+        $user = $this->teacherRepo->store($data);
+
+        $skillsId = ['skills_id' => $request->skills_id];
+        $user->teachers()->create($skillsId);
+
         $token = app('auth.password.broker')->createToken($user);
         $user->token =  $token;
         $user->notify(new TeacherStore($user));
+
         return redirect()->to('admin/teacher/teacher')->with('create', 'New Teacher created');
     }
 
@@ -62,10 +68,16 @@ class TeacherController extends Controller
      */
     public function filter(Request $request)
     {
+
         $skillsId = $request->skillsId;
         $skill = $this->skillsRepo->getSkill($skillsId);
 
-        $teachers = $skill->users;
+        $teachersFilter = $skill->teachers;
+        foreach ($teachersFilter as $teacher){
+            $teachers = $teacher->users;
+
+        }
+//dd($teachers->first_name);
         $view = view("admin/teachers/partials/_teacher",compact('teachers'))->render();
         return response()->json(['html'=>$view]);
     }
@@ -94,7 +106,12 @@ class TeacherController extends Controller
     }
 
 
-    public function edit(TeacherUpdate $request,$id)
+    /**
+     * @param TeacherUpdate $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function edit(TeacherUpdate $request, $id)
     {
 
         $data = $request->inputs();

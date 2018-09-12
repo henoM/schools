@@ -49,7 +49,6 @@ class TeacherCreate extends FormRequest
             $input = $this->all();
             $input['password'] = Hash::make( $password );
             $input['role_id'] = 2;
-            $input['realPassword'] =  $password;
             $this->replace($input);
         }
 

@@ -30,12 +30,6 @@
                         @endif
                     </div>
                 </div>
-                <div class="row form-group">
-                    <div class="col col-md-3">{!!  Form::label('name', 'Homes',['class' => 'form-control-label'])!!}</div>
-                    <div class="col-12 col-md-9">
-                        {!! Form::select('skills_id', $skills ,null,['class' => 'form-control-sm form-control'])!!}
-                    </div>
-                </div>
                 <div class="form-actions form-group"> {!!  Form::submit('Update', ['class' => 'btn btn-primary'])!!}</div>
                 {!! Form::close() !!}
             </div>

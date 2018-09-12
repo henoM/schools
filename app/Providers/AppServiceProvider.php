@@ -43,5 +43,10 @@ class AppServiceProvider extends ServiceProvider
             'App\Contracts\Teacher\Student\StudentInterface',
             'App\Repositories\Teacher\Student\StudentRepository'
         );
+        //     Teacher/StudentsRepo
+        $this->app->bind(
+            'App\Contracts\Teacher\TeacherStudentInterface',
+            'App\Repositories\Teacher\TeacherStudentRepository'
+        );
     }
 }

@@ -13,9 +13,11 @@ class Skills extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function users()
+    public function teachers()
     {
-        return $this->hasMany('App\User');
+        return $this->hasMany('App\Models\Teacher');
     }
+
+
 
 }
