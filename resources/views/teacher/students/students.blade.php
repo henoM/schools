@@ -61,11 +61,12 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">My Family</strong>
+                            <strong class="card-title">My Students</strong>
                         </div>
                         <div class="form-inline">
 
                             <a href="{{route('teacher.student.create')}}" class="btn btn-primary">Add Student</a>
+                            <a href="{{route('teacher.students.create')}}" class="btn btn-primary">Add Students</a>
                         </div>
 
                         <div class="card-body">

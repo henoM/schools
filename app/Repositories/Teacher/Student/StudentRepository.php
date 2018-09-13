@@ -21,16 +21,9 @@ class StudentRepository implements  StudentInterface
       $this->userRepo = $userRepo;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getStudent()
-    {
-        $id = 3;
-       return  $this->userRepo->getUsers($id);
-    }
     public function store($data){
-//        dd($data);
+
         return $this->userRepo->store($data);
     }
+
 }

@@ -3,7 +3,7 @@
     <div class="col-lg-6">
         <div class="card">
             <div class="card-header">
-                <strong>Homes</strong> Elements
+                <strong>Students</strong> Elements
             </div>
             <div class="card-body card-block">
 

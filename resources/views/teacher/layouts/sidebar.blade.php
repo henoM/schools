@@ -18,12 +18,6 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="{{route('teacher.student')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Students</a>
                     </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="{{route('admin.teachers')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Rooms</a>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="{{route('admin.skills')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Skills</a>
-                    </li>
                 </ul>
 
             </div><!-- /.navbar-collapse -->

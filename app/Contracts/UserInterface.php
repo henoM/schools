@@ -16,7 +16,6 @@ interface UserInterface
      * @return mixed
      */
     public function getUsers($id);
-
     /**
      * @param $data
      * @return mixed
@@ -52,4 +51,7 @@ interface UserInterface
      * @return mixed
      */
     public function getTeacherForDownload($id);
+
+
+    public function getByPassport($passport);
 }

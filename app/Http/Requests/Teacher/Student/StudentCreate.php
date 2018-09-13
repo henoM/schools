@@ -30,7 +30,7 @@ class StudentCreate extends FormRequest
             'last_name' => 'required|string|max:255',
             'email' =>'required|string|email|max:255|unique:users',
             'birth_day' => 'required|string|max:255',
-            'passport' => 'required|string|max:255|unique:students',
+            'passport' => 'required|string|max:255|',
         ];
 
     }
@@ -40,6 +40,7 @@ class StudentCreate extends FormRequest
      */
     public function inputs()
     {
+
         $request = $this->except('_token','birth_day','passport');
         $request['role_id'] = 3;
         $request['password'] = bcrypt(123456);

@@ -46,6 +46,10 @@ class TeacherController extends Controller
         return view('admin.teachers.create',compact('skills'));
     }
 
+    /**
+     * @param TeacherCreate $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(TeacherCreate $request)
     {
         $data = $request->except("skills_id");
@@ -70,7 +74,7 @@ class TeacherController extends Controller
     {
 
         $skillsId = $request->skillsId;
-        $skill = $this->skillsRepo->getSkill($skillsId);
+        $skill = $this->skillsRepo->getSkillById($skillsId);
 
         $teachersFilter = $skill->teachers;
         foreach ($teachersFilter as $teacher){

@@ -37,8 +37,16 @@ class SkillsRepository implements SkillsInterface
     /**
      * @return mixed
      */
-    public  function getSkill($id)
+    public  function getSkillById($id)
     {
       return $this->model->where('id',$id)->first();
+    }
+
+    /**
+     * @param $data
+     * @return mixed
+     */
+    public function store($data){
+        return $this->model->create($data);
     }
 }

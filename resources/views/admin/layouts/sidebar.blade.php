@@ -19,10 +19,7 @@
                         <a href="{{route('admin.teachers')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Teachers</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="{{route('admin.teachers')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Rooms</a>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="{{route('admin.teachers')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Student</a>
+                        <a href="{{route('admin.teachers')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Students</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="{{route('admin.skills')}}" class="dropdown-toggle" > <i class="menu-icon fa fa-table"></i>Skills</a>

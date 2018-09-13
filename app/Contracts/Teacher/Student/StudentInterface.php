@@ -11,10 +11,6 @@ namespace App\Contracts\Teacher\Student;
 
 interface StudentInterface
 {
-    /**
-     * @return mixed
-     */
-    public function getStudent();
 
     /**
      * @param $data

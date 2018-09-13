@@ -57,7 +57,7 @@
                             <strong class="card-title">My Family</strong>
                         </div>
                         <div class="form-inline">
-                            <a href="{{route('admin.teachers.create')}}" class="btn btn-primary">Add Teacher</a>
+                            <a href="{{route('admin.skills.create')}}" class="btn btn-primary">Add Teacher</a>
                         </div>
 
 
@@ -67,7 +67,6 @@
 
                                 <tr>
                                     <th scope="col">Skiils Name</th>
-                                    <th scope="col">Actions</th>
                                 </tr>
 
                                 </thead>
@@ -75,12 +74,6 @@
                                 @foreach($skills as $skill)
                                     <tr>
                                         <td>{{$skill->skills}}</td>
-
-                                        {{--<td>--}}
-                                        {{--<a href="{{route('family.people.view',$teacher->id)}}" class="btn btn-success btn-xs">View</a>--}}
-                                        {{--<a href="{{route('family.people.update', $teacher->id)}}" class="btn btn-primary btn-xs">Update</a>--}}
-                                        {{--<a href="{{route('family.people.delete', $teacher->id)}}" class="btn btn-danger btn-xs">Delete</a>--}}
-                                        {{--</td>--}}
                                     </tr>
                                 @endforeach
                                 </tbody>

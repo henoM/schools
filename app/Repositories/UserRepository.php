@@ -27,7 +27,27 @@ class UserRepository implements UserInterface
      */
     public function getUsers($id)
     {
+        if($id == 3){
+            return $this->model->with('students')->where('role_id', $id)->get();
+        }
         return $this->model->where('role_id', $id)->paginate(10);
+    }
+
+    public function getByPassport($passport)
+    {
+        return $this->model->with('students')->whereHas('students', function ($query) use ($passport){
+            $query->where('passport', $passport);
+        })->first();
+    }
+
+    /**
+     * @param $passport
+     * @return mixed
+     */
+    public function getStudents($passport)
+    {
+
+        return $this->model->where('passport', $passport)->first();
     }
 
     /**
@@ -36,6 +56,7 @@ class UserRepository implements UserInterface
      */
     public function store($data)
     {
+//        dd($data);
         return $this->model->create($data);
     }
 
